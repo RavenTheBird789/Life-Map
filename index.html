@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raphael's Life Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #39ff14; --green-dim: #1a7a08; --bg: #000000;
+      --frame-size: 300px; --frame-border: 2px; --gutter: 3rem;
+    }
+    body { background-color: var(--bg); color: var(--green); font-family: "Courier New", Courier, monospace; min-height: 100vh; padding: 4rem 2rem 6rem; }
+    header { text-align: center; margin-bottom: 4rem; border-bottom: 1px solid var(--green-dim); padding-bottom: 2rem; }
+    .site-title { font-size: 2.4rem; letter-spacing: 0.3em; text-transform: uppercase; }
+    .site-subtitle { font-size: 0.85rem; color: var(--green-dim); margin-top: 0.5rem; letter-spacing: 0.2em; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--frame-size), 1fr)); gap: var(--gutter); max-width: 1200px; margin: 0 auto; }
+    .gallery-item { display: flex; flex-direction: column; gap: 1.2rem; }
+    .image-frame { position: relative; width: 100%; aspect-ratio: 1 / 1; border: var(--frame-border) solid var(--green); overflow: hidden; }
+    .gallery-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .frame-corner { position: absolute; width: 12px; height: 12px; border-color: var(--green); border-style: solid; }
+    .frame-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+    .frame-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+    .frame-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+    .frame-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+    .caption { padding: 0 0.25rem; }
+    .caption-date { display: block; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--green-dim); margin-bottom: 0.5rem; }
+    .caption-text { font-size: 0.82rem; line-height: 1.65; color: var(--green); opacity: 0.85; }
+    footer { text-align: center; margin-top: 5rem; border-top: 1px solid var(--green-dim); padding-top: 1.5rem; }
+    .footer-text { font-size: 0.75rem; color: var(--green-dim); letter-spacing: 0.2em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="site-title">Life Map</h1>
+    <p class="site-subtitle">// Tribute To The Life of Raphael Jones //</p>
+  </header>
+
+  <main class="gallery-grid">
+
+    <!-- 06.09.2008 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-01.jpg" alt="Friends at Starbucks after birthday party" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">06.09.2008</time>
+        <p class="caption-text">My birthday and me at Starbucks with my friends last year after my birthday party.</p>
+      </div>
+    </article>
+
+    <!-- 06.09.2016 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-14.jpg" alt="Arduino basic starter kit unboxing" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">06.09.2016</time>
+        <p class="caption-text">Arduino kit gifted to me by my father.</p>
+      </div>
+    </article>
+
+    <!-- 03.15.2021 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-15.jpg" alt="Metasploit running in the terminal" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">03.15.2021</time>
+        <p class="caption-text">Me running Metasploit on my PC. My favorite Pen-Testing tool for labs and CTF's.</p>
+      </div>
+    </article>
+
+    <!-- 07.09.2024 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-04.jpg" alt="Two brothers hanging out at home" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">07.09.2024</time>
+        <p class="caption-text">Alessio and I hanging out over the summer.</p>
+      </div>
+    </article>
+
+    <!-- 08.19.2024 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-16.jpg" alt="Friend at an outdoor cafe" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">08.19.2024</time>
+        <p class="caption-text">My sister Priscilla and I at a restaurant in Raleigh.</p>
+      </div>
+    </article>
+
+    <!-- 09.01.2024 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-11.jpg" alt="Inside a beautiful orthodox church" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">09.01.2024</time>
+        <p class="caption-text">Visiting a Greek Orthodox Church with AJ.</p>
+      </div>
+    </article>
+
+    <!-- 10.05.2024 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-05.jpg" alt="Waterfront house view from a dock" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">10.05.2024</time>
+        <p class="caption-text">The house of my dad's wealthy friends that I spend a lot of my summer at.</p>
+      </div>
+    </article>
+
+    <!-- 11.24.2024 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-13.jpg" alt="Cooking creamy chicken on the stove" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">11.24.2024</time>
+        <p class="caption-text">Cooking with my Aunt.</p>
+      </div>
+    </article>
+
+    <!-- 01.25.2025 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-12.jpg" alt="Holding a Bojangles visor and name tag" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">01.25.2025</time>
+        <p class="caption-text">Me feeling proud after getting my first job at Bojangles.</p>
+      </div>
+    </article>
+
+    <!-- 05.21.2025 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-07.jpg" alt="At a historic fort with cannons" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">05.21.2025</time>
+        <p class="caption-text">Me and Delilah on a field trip.</p>
+      </div>
+    </article>
+
+    <!-- 07.19.2025 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-17.jpg" alt="Improvising with a water bottle in the car engine" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">07.19.2025</time>
+        <p class="caption-text">Me changing my oil with half a water bottle as a funnel.</p>
+      </div>
+    </article>
+
+    <!-- 08.23.2025 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-08.jpg" alt="Standing next to a Nissan Pathfinder" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">08.23.2025</time>
+        <p class="caption-text">AJ's first time parking after I started teaching him how to drive.</p>
+      </div>
+    </article>
+
+    <!-- 09.07.2025 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-02.jpg" alt="Two brothers in the car" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">09.07.2025</time>
+        <p class="caption-text">Me and my brother waiting for a tow truck after my transmission blew.</p>
+      </div>
+    </article>
+
+    <!-- 09.13.2025 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-10.jpg" alt="Playing piano by a window" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">09.13.2025</time>
+        <p class="caption-text">AJ playing the piano at Duke University during a college visit.</p>
+      </div>
+    </article>
+
+    <!-- 11.28.2025 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-09.jpg" alt="At the hospital in a gown still smiling" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">11.28.2025</time>
+        <p class="caption-text">Me visiting AJ in the hospital after his car accident.</p>
+      </div>
+    </article>
+
+    <!-- 02.14.2026 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-03.jpg" alt="Arduino and electronics components" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">02.14.2026</time>
+        <p class="caption-text">Two circuit boards given to me by my former crush.</p>
+      </div>
+    </article>
+
+    <!-- 05.18.2026 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-06.jpg" alt="Portrait holding a book" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">05.18.2026</time>
+        <p class="caption-text">AJ's return to church and Baptism.</p>
+      </div>
+    </article>
+
+    <!-- 2026.05.19 -->
+    <article class="gallery-item">
+      <div class="image-frame">
+        <img src="photos/img-18.jpg" alt="Senior walk with my brother. Walking in cap and gown" class="gallery-image" />
+        <div class="frame-corner tl"></div><div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div><div class="frame-corner br"></div>
+      </div>
+      <div class="caption">
+        <time class="caption-date">2026.05.19</time>
+        <p class="caption-text">Senior walk. Walking out in cap and gown, a milestone worth every step.</p>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <p class="footer-text">// END OF LIFE MAP //</p>
+  </footer>
+
+  <script>
+    const subtitle = document.querySelector(".site-subtitle");
+    if (subtitle) {
+      let visible = true;
+      setInterval(() => { subtitle.style.opacity = visible ? "0.3" : "1"; visible = !visible; }, 800);
+    }
+    document.querySelectorAll(".image-frame").forEach((frame) => {
+      frame.style.cursor = "pointer";
+      frame.addEventListener("click", () => {
+        const img = frame.querySelector("img");
+        if (!img || !img.src) return;
+        const overlay = document.createElement("div");
+        overlay.style.cssText = "position:fixed;inset:0;background:#000c;z-index:999;display:flex;align-items:center;justify-content:center;cursor:zoom-out";
+        const big = document.createElement("img");
+        big.src = img.src;
+        big.style.cssText = "max-width:90vw;max-height:90vh;object-fit:contain;border:2px solid #39ff14";
+        overlay.appendChild(big);
+        document.body.appendChild(overlay);
+        overlay.addEventListener("click", () => overlay.remove());
+      });
+    });
+  </script>
+</body>
+</html>
